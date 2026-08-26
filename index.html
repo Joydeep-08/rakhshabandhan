@@ -6,7 +6,7 @@
 <title>Happy Raksha Bandhan 🧵</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600&family=Dancing+Script:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Work+Sans:wght@400;500;600;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet" />
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -22,47 +22,73 @@
   })();
 </script>
 <style>
+  :root{
+    --paper:       #FFF0F5;
+    --paper-2:     #FFFAFC;
+    --ink:         #241019;
+    --ink-soft:    #6E4552;
+    --muted:       #B18A96;
+
+    --yellow:      #FFC1D6;
+    --yellow-soft: #FFE3EC;
+    --sky:         #D9B3FF;
+    --sky-soft:    #F2E6FF;
+    --mint:        #FFA8C5;
+    --coral:       #FF5C8A;
+    --pink:        #C2185B;
+    --pink-soft:   #FFD6E5;
+
+    --shadow-hard: 5px 5px 0 var(--ink);
+    --shadow-hard-sm: 3px 3px 0 var(--ink);
+  }
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{
-    font-family:'Inter',sans-serif;
-    background:#f7d9a8;
+    font-family:'Work Sans',sans-serif;
+    background:
+      radial-gradient(circle, rgba(36,16,25,.05) 1.5px, transparent 1.5px),
+      linear-gradient(160deg,#FFF3F7 0%,#FFE8F1 45%,#F6E9FF 100%);
+    background-size: 22px 22px, 100% 100%;
+    background-attachment: fixed;
     min-height:100vh;
     display:flex;align-items:flex-start;justify-content:center;
     padding:28px 14px 80px;
+    color:var(--ink);
   }
-  .font-display{font-family:'Playfair Display',serif}
-  .font-script{font-family:'Dancing Script',cursive}
+  .font-display{font-family:'Baloo 2',sans-serif;font-weight:700}
+  .font-script{font-family:'Caveat',cursive}
 
-  /* ---- outer frame w/ thread+diya pattern ---- */
+  /* ---- outer frame ---- */
   .frame{
     width:100%;max-width:460px;
-    background:#7a1f1a;
+    background:var(--sky-soft);
     border-radius:22px;
+    border:3px solid var(--ink);
     padding:16px;
     position:relative;
-    box-shadow:0 24px 60px -20px rgba(120,30,10,.55);
+    box-shadow:8px 8px 0 var(--ink);
   }
   .frame-pattern{
-    position:absolute;inset:0;border-radius:22px;
+    position:absolute;inset:0;border-radius:19px;
     background-image:
-      radial-gradient(circle at 8% 12%, rgba(255,255,255,.06) 0 3px, transparent 4px),
-      radial-gradient(circle at 32% 30%, rgba(255,255,255,.06) 0 3px, transparent 4px),
-      radial-gradient(circle at 58% 10%, rgba(255,255,255,.06) 0 3px, transparent 4px),
-      radial-gradient(circle at 84% 26%, rgba(255,255,255,.06) 0 3px, transparent 4px),
-      radial-gradient(circle at 14% 54%, rgba(255,255,255,.06) 0 3px, transparent 4px),
-      radial-gradient(circle at 44% 68%, rgba(255,255,255,.06) 0 3px, transparent 4px),
-      radial-gradient(circle at 70% 52%, rgba(255,255,255,.06) 0 3px, transparent 4px),
-      radial-gradient(circle at 92% 74%, rgba(255,255,255,.06) 0 3px, transparent 4px),
-      radial-gradient(circle at 20% 88%, rgba(255,255,255,.06) 0 3px, transparent 4px),
-      radial-gradient(circle at 62% 92%, rgba(255,255,255,.06) 0 3px, transparent 4px);
+      radial-gradient(circle at 8% 12%, rgba(36,16,25,.05) 0 3px, transparent 4px),
+      radial-gradient(circle at 32% 30%, rgba(36,16,25,.05) 0 3px, transparent 4px),
+      radial-gradient(circle at 58% 10%, rgba(36,16,25,.05) 0 3px, transparent 4px),
+      radial-gradient(circle at 84% 26%, rgba(36,16,25,.05) 0 3px, transparent 4px),
+      radial-gradient(circle at 14% 54%, rgba(36,16,25,.05) 0 3px, transparent 4px),
+      radial-gradient(circle at 44% 68%, rgba(36,16,25,.05) 0 3px, transparent 4px),
+      radial-gradient(circle at 70% 52%, rgba(36,16,25,.05) 0 3px, transparent 4px),
+      radial-gradient(circle at 92% 74%, rgba(36,16,25,.05) 0 3px, transparent 4px),
+      radial-gradient(circle at 20% 88%, rgba(36,16,25,.05) 0 3px, transparent 4px),
+      radial-gradient(circle at 62% 92%, rgba(36,16,25,.05) 0 3px, transparent 4px);
     pointer-events:none;
   }
-  .frame-icons{position:absolute;inset:0;pointer-events:none;overflow:hidden;border-radius:22px}
-  .frame-icons svg{position:absolute;opacity:.18}
+  .frame-icons{position:absolute;inset:0;pointer-events:none;overflow:hidden;border-radius:19px}
+  .frame-icons svg{position:absolute;opacity:.22}
 
   .card{
     position:relative;z-index:1;
-    background:#fffaf0;
+    background:var(--paper-2);
+    border:2px solid var(--ink);
     border-radius:16px;
     min-height:560px;
     display:flex;flex-direction:column;
@@ -70,7 +96,7 @@
   }
 
   /* corner diyas */
-  .corner-deco{position:absolute;width:46px;height:52px;z-index:2;opacity:.92}
+  .corner-deco{position:absolute;width:46px;height:52px;z-index:2;opacity:.95}
   .corner-tr{top:14px;right:16px}
   .corner-bl{bottom:14px;left:16px;transform:scaleX(-1)}
 
@@ -78,40 +104,42 @@
   @keyframes spin{to{transform:rotate(360deg)}}
   @keyframes pop{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}}
   .fade-up{animation:fadeUp .5s ease both}
-  .spinner{width:26px;height:26px;border-radius:50%;border:3px solid #f0d6a0;border-top-color:#c1401e;animation:spin .8s linear infinite}
+  .spinner{width:26px;height:26px;border-radius:50%;border:3px solid var(--yellow-soft);border-top-color:var(--ink);animation:spin .8s linear infinite}
 
   .btn{
-    padding:10px 26px;border-radius:24px;font-size:12px;font-weight:600;
-    letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;
-    border:1.5px solid #c1401e;background:#c1401e;color:#fff;font-family:'Inter',sans-serif;
-    transition:transform .15s,opacity .15s;
+    padding:10px 26px;border-radius:24px;font-size:12px;font-weight:700;
+    letter-spacing:1px;text-transform:uppercase;cursor:pointer;
+    border:2.5px solid var(--ink);background:var(--yellow);color:var(--ink);font-family:'Baloo 2',sans-serif;
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform .15s,box-shadow .15s,opacity .15s;
   }
-  .btn:hover{transform:translateY(-1px)}
-  .btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+  .btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--ink)}
+  .btn:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:3px 3px 0 var(--ink)}
   .btn-ghost{
-    padding:10px 26px;border-radius:24px;font-size:12px;font-weight:600;
-    letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;
-    border:1.5px solid #c1401e;background:transparent;color:#c1401e;font-family:'Inter',sans-serif;
+    padding:10px 26px;border-radius:24px;font-size:12px;font-weight:700;
+    letter-spacing:1px;text-transform:uppercase;cursor:pointer;
+    border:2.5px solid var(--ink);background:transparent;color:var(--ink);font-family:'Baloo 2',sans-serif;
   }
   .btn-sm{padding:8px 16px;font-size:11px}
 
   .inp{
-    width:100%;padding:9px 12px;border-radius:9px;border:1.5px solid #f0d6a0;
-    font-size:14px;font-family:'Inter',sans-serif;outline:none;background:#fffdf8;
+    width:100%;padding:9px 12px;border-radius:10px;border:2px solid var(--ink);
+    font-size:14px;font-family:'Work Sans',sans-serif;outline:none;background:var(--paper-2);
+    transition:box-shadow .15s,transform .15s,background .15s;
   }
-  .inp:focus{border-color:#c1401e}
+  .inp:focus{box-shadow:2px 2px 0 var(--ink);transform:translate(-1px,-1px);background:var(--yellow-soft)}
 
   .photo-slot{
-    border:1.5px dashed #f0d6a0;border-radius:12px;aspect-ratio:1/1;
+    border:2px dashed var(--ink);border-radius:12px;aspect-ratio:1/1;
     display:flex;align-items:center;justify-content:center;cursor:pointer;
-    overflow:hidden;position:relative;background:#fffdf8;
+    overflow:hidden;position:relative;background:var(--paper-2);
   }
   .photo-slot img{width:100%;height:100%;object-fit:cover}
 
   ::-webkit-scrollbar{width:0}
 
   .write-cursor{
-    display:inline-block;width:1.5px;height:12px;background:#c1401e;
+    display:inline-block;width:2px;height:12px;background:var(--pink);
     margin-left:2px;vertical-align:-1px;animation:blinkCursor .9s steps(1) infinite;
   }
   @keyframes blinkCursor{50%{opacity:0}}
@@ -119,67 +147,67 @@
   /* ---- phone lock-screen notifications (step 0.5) ---- */
   .phone-bg{
     flex:1;display:flex;flex-direction:column;align-items:center;
-    background:linear-gradient(180deg,#f7d9a8,#f3c37e);
+    background:linear-gradient(180deg,var(--sky-soft),var(--pink-soft));
     padding:26px 18px 30px;
   }
-  .phone-time{color:#fff;text-align:center;margin-bottom:22px;text-shadow:0 2px 6px rgba(120,30,10,.3)}
-  .phone-time .hh{font-family:'Playfair Display',serif;font-size:44px;font-weight:700;line-height:1}
-  .phone-time .dd{font-size:12px;letter-spacing:1px;margin-top:4px;opacity:.9;font-family:'Inter',sans-serif}
+  .phone-time{color:var(--ink);text-align:center;margin-bottom:22px}
+  .phone-time .hh{font-family:'Baloo 2',sans-serif;font-size:44px;font-weight:700;line-height:1}
+  .phone-time .dd{font-size:12px;letter-spacing:1px;margin-top:4px;opacity:.75;font-family:'Work Sans',sans-serif;font-weight:600}
   .notif{
-    width:100%;max-width:320px;background:#fffaf0;border-radius:16px;
+    width:100%;max-width:320px;background:var(--paper-2);border:2px solid var(--ink);border-radius:16px;
     padding:11px 13px;display:flex;gap:10px;margin-bottom:10px;
-    box-shadow:0 10px 20px -10px rgba(120,30,10,.35);
+    box-shadow:4px 4px 0 var(--ink);
   }
-  .notif-ico{width:34px;height:34px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:16px}
+  .notif-ico{width:34px;height:34px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:16px;border:1.5px solid var(--ink)}
   .notif-body{flex:1;min-width:0}
-  .notif-top{display:flex;justify-content:space-between;font-size:9.5px;color:#b87a3f;text-transform:uppercase;letter-spacing:.4px;margin-bottom:2px;font-family:'Inter',sans-serif}
-  .notif-sender{font-size:12.5px;font-weight:600;color:#3a1a0f;font-family:'Inter',sans-serif}
-  .notif-msg{font-size:11.5px;color:#6b4836;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:'Inter',sans-serif}
+  .notif-top{display:flex;justify-content:space-between;font-size:9.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;margin-bottom:2px;font-family:'Work Sans',sans-serif;font-weight:600}
+  .notif-sender{font-size:12.5px;font-weight:700;color:var(--ink);font-family:'Work Sans',sans-serif}
+  .notif-msg{font-size:11.5px;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:'Work Sans',sans-serif}
   .notif-target{
-    cursor:pointer;background:#fdf0e0;border:1.5px solid #e2a35a;
+    cursor:pointer;background:var(--yellow-soft);border:2px solid var(--ink);
     animation:pop 1.6s ease-in-out infinite;
   }
-  .notif-target .notif-ico{background:#c1401e;color:#fff}
-  .phone-hint{color:#fff;font-size:13px;margin-top:14px;text-shadow:0 1px 4px rgba(120,30,10,.3);font-family:'Dancing Script',cursive}
+  .notif-target .notif-ico{background:var(--coral);color:#fff}
+  .phone-hint{color:var(--ink);font-size:13px;margin-top:14px;font-family:'Caveat',cursive}
 
   /* ---- certification / agreement page ---- */
   .agree-card{
-    background:#fffaf0;border:1.5px solid #f0d6a0;border-radius:16px;
-    padding:18px 18px 20px;box-shadow:0 14px 28px -14px rgba(193,64,30,.35);
+    background:var(--paper-2);border:2px solid var(--ink);border-radius:16px;
+    padding:18px 18px 20px;box-shadow:5px 5px 0 var(--ink);
   }
-  .agree-item{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px dashed #f5e4c0;font-size:12px;color:#4a2f18;line-height:1.4;font-family:'Inter',sans-serif}
+  .agree-item{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px dashed var(--pink-soft);font-size:12px;color:var(--ink-soft);line-height:1.4;font-family:'Work Sans',sans-serif}
   .agree-item:last-child{border-bottom:none}
-  .agree-check{width:20px;height:20px;border:1.5px solid #f0d6a0;border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:#fff;margin-top:1px;font-size:13px;font-weight:700;color:#c1401e}
-  .agree-check.locked{background:#fdf0e0;color:#e2a35a;border-color:#f5e4c0}
+  .agree-check{width:20px;height:20px;border:1.5px solid var(--ink);border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:#fff;margin-top:1px;font-size:13px;font-weight:700;color:var(--pink)}
+  .agree-check.locked{background:var(--yellow-soft);color:var(--muted);border-color:var(--pink-soft)}
   .agree-check.final{cursor:pointer}
   .agree-check.final.checked{background:#e8f5ea;color:#4a8a5c;border-color:#c8e6cb}
   .agree-final-row{cursor:pointer}
-  .agree-terms{display:flex;justify-content:space-between;font-size:10.5px;color:#b87a3f;margin-top:12px;padding-top:10px;border-top:1px solid #f0d6a0;font-family:'Inter',sans-serif}
+  .agree-terms{display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);margin-top:12px;padding-top:10px;border-top:1px solid var(--pink-soft);font-family:'Work Sans',sans-serif}
 
   /* ---- pinterest-style vision board (final step) ---- */
   .board-masonry{column-count:2;column-gap:14px;padding:6px 4px 4px}
   .board-item{break-inside:avoid;margin-bottom:16px}
   .board-item.full-span{column-span:all}
-  .board-photo{background:#fffefb;padding:8px 8px 22px;border-radius:3px;box-shadow:0 12px 24px -10px rgba(193,64,30,.45);position:relative}
-  .board-photo img{width:100%;object-fit:cover;border-radius:1px;display:block;background:#f5e4c0}
+  .board-photo{background:var(--paper-2);padding:8px 8px 22px;border:2px solid var(--ink);border-radius:4px;box-shadow:4px 4px 0 var(--ink);position:relative}
+  .board-photo img{width:100%;object-fit:cover;border-radius:1px;display:block;background:var(--pink-soft)}
   .board-photo.focus img{aspect-ratio:4/5}
   .board-photo.side{width:80%;margin:0 auto}
   .board-photo.side img{aspect-ratio:1/1}
-  .board-caption{position:absolute;left:50%;bottom:5px;transform:translateX(-50%);font-family:'Dancing Script',cursive;font-size:13px;font-weight:600;color:#c1401e;white-space:nowrap}
-  .board-note{background:#fff9ef;border:1px solid #f5e4c0;border-radius:10px;padding:13px 12px;box-shadow:0 10px 20px -12px rgba(193,64,30,.4);font-size:10.5px;color:#6b4836;line-height:1.6;text-align:left}
-  .board-note h4{font-family:'Dancing Script',cursive;font-size:16px;color:#c1401e;margin-bottom:6px;font-weight:600;text-align:center}
+  .board-caption{position:absolute;left:50%;bottom:5px;transform:translateX(-50%);font-family:'Caveat',cursive;font-size:14px;font-weight:600;color:var(--pink);white-space:nowrap}
+  .board-note{background:var(--paper-2);border:2px solid var(--ink);border-radius:10px;padding:13px 12px;box-shadow:4px 4px 0 var(--ink);font-size:10.5px;color:var(--ink-soft);line-height:1.6;text-align:left}
+  .board-note h4{font-family:'Caveat',cursive;font-size:17px;color:var(--pink);margin-bottom:6px;font-weight:600;text-align:center}
   .board-note ul{list-style:none;text-align:left}
   .board-note li{margin-bottom:4px;padding-left:13px;position:relative}
-  .board-note li::before{content:'❀';position:absolute;left:0;top:1px;font-size:8px;color:#e2a35a}
-  .board-tape{position:absolute;width:44px;height:15px;background:rgba(247,217,168,.9);border:1px solid rgba(193,64,30,.15);top:-8px;left:50%;transform:translateX(-50%) rotate(-3deg);border-radius:2px;box-shadow:0 2px 3px rgba(0,0,0,.08);z-index:2}
+  .board-note li::before{content:'❀';position:absolute;left:0;top:1px;font-size:8px;color:var(--coral)}
+  .board-tape{position:absolute;width:44px;height:15px;background:repeating-linear-gradient(45deg,var(--coral),var(--coral) 6px,var(--yellow) 6px,var(--yellow) 12px);border:1.5px solid var(--ink);top:-8px;left:50%;transform:translateX(-50%) rotate(-3deg);border-radius:2px;z-index:2}
   .board-clip{position:absolute;top:-12px;right:14px;font-size:20px;transform:rotate(14deg);z-index:2;filter:drop-shadow(0 2px 2px rgba(0,0,0,.15))}
   .board-heart{position:absolute;font-size:15px;z-index:2;filter:drop-shadow(0 1px 1px rgba(0,0,0,.12))}
-  .board-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:13px;color:#3a1a0f;padding:16px 18px;background:#fdf0e0;border-radius:12px;line-height:1.65;position:relative}
-  .board-quote::before,.board-quote::after{content:'"';font-family:'Playfair Display',serif;font-size:26px;color:#e2a35a;position:absolute}
+  .board-quote{font-family:'Caveat',cursive;font-size:17px;color:var(--ink);padding:16px 18px;background:var(--pink-soft);border:2px solid var(--ink);border-radius:12px;line-height:1.5;position:relative;box-shadow:4px 4px 0 var(--ink)}
+  .board-quote::before,.board-quote::after{content:'"';font-family:'Baloo 2',sans-serif;font-size:24px;color:var(--muted);position:absolute}
   .board-quote::before{top:2px;left:8px}
-  .board-quote::after{bottom:-14px;right:10px}
-  .board-ribbon{background:#c1401e;color:#fff;border-radius:10px;padding:12px 10px;font-size:11px;letter-spacing:.3px;text-align:center;line-height:1.6}
-  .board-ribbon .font-script{font-size:16px;display:block;margin-top:2px}
+  .board-quote::after{bottom:-10px;right:10px}
+  .board-ribbon{background:var(--coral);color:#fff;border:2px solid var(--ink);border-radius:10px;padding:12px 10px;font-size:11px;letter-spacing:.3px;text-align:center;line-height:1.6;box-shadow:4px 4px 0 var(--ink)}
+  .board-ribbon .font-script{font-size:17px;display:block;margin-top:2px}
 
   /* shared-link boot state — kills the form flash before JS decides what to show */
   html.viewer-boot #step-intake{display:none !important}
@@ -196,37 +224,37 @@
     <!-- ============ STEP BOOT — SHARED LINK LOADING / ERROR ============ -->
     <section id="step-bootload" style="display:none;flex:1;flex-direction:column;align-items:center;justify-content:center;padding:36px 26px;text-align:center">
       <div class="spinner" id="bootload-spinner"></div>
-      <div style="margin-top:16px;font-size:12.5px;color:#b87a3f" id="bootload-text">Opening your rakhi surprise…</div>
+      <div style="margin-top:16px;font-size:12.5px;color:var(--ink-soft)" id="bootload-text">Opening your rakhi surprise…</div>
       <button id="bootload-retry" class="btn btn-sm" style="display:none;margin-top:18px" onclick="location.reload()">Retry</button>
     </section>
 
     <!-- ============ STEP 0 — INTAKE ============ -->
     <section id="step-intake" class="fade-up" style="padding:34px 26px;flex:1;display:flex;flex-direction:column">
-      <div id="resume-banner" style="display:none;background:#fdf0e0;border:1.5px solid #f0d6a0;border-radius:12px;padding:12px 14px;margin-bottom:18px;font-size:12px;color:#8a4f28">
+      <div id="resume-banner" style="display:none;background:var(--yellow-soft);border:2px solid var(--ink);border-radius:12px;padding:12px 14px;margin-bottom:18px;font-size:12px;color:var(--ink-soft)">
         <div style="margin-bottom:8px">You already paid for a surprise that didn't finish generating. Want to pick up where it left off?</div>
         <div style="display:flex;gap:8px">
           <button class="btn btn-sm" style="flex:1" onclick="resumePendingOrder()">Resume</button>
           <button class="btn-ghost btn-sm" style="flex:1" onclick="discardPendingOrder()">Discard</button>
         </div>
       </div>
-      <div class="font-display" style="font-size:24px;font-weight:700;color:#3a1a0f;text-align:center;margin-bottom:4px">Make Their Rakhi Surprise</div>
-      <p style="text-align:center;color:#b87a3f;font-size:12.5px;margin-bottom:22px">Three photos, a few words — that's all it takes.</p>
+      <div class="font-display" style="font-size:24px;color:var(--ink);text-align:center;margin-bottom:4px">Make Their Rakhi Surprise</div>
+      <p style="text-align:center;color:var(--ink-soft);font-size:12.5px;margin-bottom:22px">Three photos, a few words — that's all it takes.</p>
 
       <div style="display:flex;flex-direction:column;gap:14px">
         <input id="in-recipient" class="inp" placeholder="Their name" />
         <input id="in-sender" class="inp" placeholder="Your name" />
 
         <div>
-          <div style="font-size:11px;color:#8a4f28;font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:8px">Three photos, for the board</div>
+          <div style="font-size:11px;color:var(--ink-soft);font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:8px">Three photos, for the board</div>
           <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
-            <div class="photo-slot" data-slot="0" onclick="pickPhoto(0)"><span style="font-size:10px;color:#e0b878;text-align:center;padding:0 6px">photo 1</span></div>
-            <div class="photo-slot" data-slot="1" onclick="pickPhoto(1)"><span style="font-size:10px;color:#e0b878;text-align:center;padding:0 6px">photo 2</span></div>
-            <div class="photo-slot" data-slot="2" onclick="pickPhoto(2)"><span style="font-size:10px;color:#e0b878;text-align:center;padding:0 6px">photo 3</span></div>
+            <div class="photo-slot" data-slot="0" onclick="pickPhoto(0)"><span style="font-size:10px;color:var(--muted);text-align:center;padding:0 6px">photo 1</span></div>
+            <div class="photo-slot" data-slot="1" onclick="pickPhoto(1)"><span style="font-size:10px;color:var(--muted);text-align:center;padding:0 6px">photo 2</span></div>
+            <div class="photo-slot" data-slot="2" onclick="pickPhoto(2)"><span style="font-size:10px;color:var(--muted);text-align:center;padding:0 6px">photo 3</span></div>
           </div>
           <input type="file" id="file-input" accept="image/*" class="hidden" style="display:none" />
         </div>
 
-        <textarea id="in-message" class="inp" rows="7" style="resize:none">I know I don't say it enough, so let me say it properly today: however far apart we are, you're still the first person I think of when something good — or bad — happens.
+        <textarea id="in-message" class="inp" rows="7" style="resize:none;font-family:'Caveat',cursive;font-size:16px;line-height:1.5">I know I don't say it enough, so let me say it properly today: however far apart we are, you're still the first person I think of when something good — or bad — happens.
 
 Thank you for every fight we survived, every secret you kept, and every time you had my back without me even asking. Growing up with you made everything a little louder, a little funnier, and a lot more fun.
 
@@ -241,12 +269,12 @@ Happy Raksha Bandhan. You're stuck with me as your sibling forever. 🧵</textar
 
     <!-- ============ STEP PAY — COUPON + PAYMENT ============ -->
     <section id="step-payment" style="display:none;flex:1;flex-direction:column;padding:34px 26px">
-      <div class="font-display" style="font-size:22px;font-weight:700;color:#3a1a0f;text-align:center;margin-bottom:6px">Almost there</div>
-      <p style="text-align:center;color:#b87a3f;font-size:12.5px;margin-bottom:26px">Unlock the link to send it to them.</p>
+      <div class="font-display" style="font-size:22px;color:var(--ink);text-align:center;margin-bottom:6px">Almost there</div>
+      <p style="text-align:center;color:var(--ink-soft);font-size:12.5px;margin-bottom:26px">Unlock the link to send it to them.</p>
 
-      <div style="background:#fdf0e0;border-radius:14px;padding:20px;text-align:center;margin-bottom:18px">
-        <div style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#b87a3f;margin-bottom:6px">Total</div>
-        <div class="font-display" id="pay-price" style="font-size:34px;font-weight:700;color:#c1401e">₹99</div>
+      <div style="background:var(--yellow-soft);border:2px solid var(--ink);border-radius:14px;padding:20px;text-align:center;margin-bottom:18px">
+        <div style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px">Total</div>
+        <div class="font-display" id="pay-price" style="font-size:34px;color:var(--ink)">₹99</div>
         <div id="pay-coupon-applied" style="display:none;font-size:11px;color:#4a8a5c;margin-top:4px"></div>
       </div>
 
@@ -261,10 +289,10 @@ Happy Raksha Bandhan. You're stuck with me as your sibling forever. 🧵</textar
 
       <div id="pay-loading" style="display:none;align-items:center;justify-content:center;gap:10px;margin-top:18px">
         <div class="spinner"></div>
-        <span id="pay-loading-text" style="font-size:12.5px;color:#b87a3f">Creating your surprise…</span>
+        <span id="pay-loading-text" style="font-size:12.5px;color:var(--ink-soft)">Creating your surprise…</span>
       </div>
 
-      <div id="pay-fail" style="display:none;background:#fdf0e0;border:1.5px solid #f0d6a0;border-radius:12px;padding:14px;margin-top:18px;font-size:12px;color:#8a4f28;text-align:center">
+      <div id="pay-fail" style="display:none;background:var(--yellow-soft);border:2px solid var(--ink);border-radius:12px;padding:14px;margin-top:18px;font-size:12px;color:var(--ink-soft);text-align:center">
         <div style="margin-bottom:10px">Payment went through, but we hit a snag creating the link. Your payment is safe — just tap retry.</div>
         <button class="btn" style="width:100%" onclick="retryFinalize()">Retry</button>
       </div>
@@ -272,8 +300,8 @@ Happy Raksha Bandhan. You're stuck with me as your sibling forever. 🧵</textar
 
     <!-- ============ STEP LINK — SHAREABLE LINK ============ -->
     <section id="step-linkout" style="display:none;flex:1;flex-direction:column;align-items:center;justify-content:center;padding:36px 26px;text-align:center">
-      <div class="font-display fade-up" style="font-size:22px;font-weight:700;color:#3a1a0f;margin-bottom:10px">It's ready 🧵</div>
-      <p style="color:#b87a3f;font-size:12.5px;margin-bottom:20px">Copy this link and send it to them.</p>
+      <div class="font-display fade-up" style="font-size:22px;color:var(--ink);margin-bottom:10px">It's ready 🧵</div>
+      <p style="color:var(--ink-soft);font-size:12.5px;margin-bottom:20px">Copy this link and send it to them.</p>
       <div style="display:flex;gap:8px;width:100%">
         <input id="out-link" class="inp" readonly style="font-size:11px" />
         <button class="btn btn-sm" onclick="copyLink()">Copy</button>
@@ -292,7 +320,7 @@ Happy Raksha Bandhan. You're stuck with me as your sibling forever. 🧵</textar
         </div>
 
         <div class="notif">
-          <div class="notif-ico" style="background:#fdeadd">📦</div>
+          <div class="notif-ico" style="background:var(--yellow-soft)">📦</div>
           <div class="notif-body">
             <div class="notif-top"><span>Delivery</span><span>2m</span></div>
             <div class="notif-sender">Your package</div>
@@ -300,7 +328,7 @@ Happy Raksha Bandhan. You're stuck with me as your sibling forever. 🧵</textar
           </div>
         </div>
         <div class="notif">
-          <div class="notif-ico" style="background:#e3f3e6">💧</div>
+          <div class="notif-ico" style="background:var(--sky-soft)">💧</div>
           <div class="notif-body">
             <div class="notif-top"><span>Reminder</span><span>6m</span></div>
             <div class="notif-sender">Hydration check</div>
@@ -308,7 +336,7 @@ Happy Raksha Bandhan. You're stuck with me as your sibling forever. 🧵</textar
           </div>
         </div>
         <div class="notif">
-          <div class="notif-ico" style="background:#f3e9db">🍬</div>
+          <div class="notif-ico" style="background:var(--pink-soft)">🍬</div>
           <div class="notif-body">
             <div class="notif-top"><span>Sweets</span><span>14m</span></div>
             <div class="notif-sender">Mithai stock</div>
@@ -330,20 +358,20 @@ Happy Raksha Bandhan. You're stuck with me as your sibling forever. 🧵</textar
     <!-- ============ STEP 2 — ENVELOPE ============ -->
     <section id="step-envelope" style="display:none;flex:1;flex-direction:column;align-items:center;justify-content:center;padding:36px 26px;text-align:center">
       <button id="env-edit-btn" class="btn-ghost btn-sm" style="position:absolute;top:14px;left:14px;z-index:5" onclick="goBackTo('step-intake')">← Edit</button>
-      <div class="font-display fade-up" style="font-size:26px;font-weight:700;color:#3a1a0f;margin-bottom:26px" id="env-title">Happy Raksha Bandhan</div>
+      <div class="font-display fade-up" style="font-size:26px;color:var(--ink);margin-bottom:26px" id="env-title">Happy Raksha Bandhan</div>
 
       <div id="envelope" class="fade-up" onclick="openEnvelope()" style="cursor:pointer;width:230px;position:relative;perspective:600px">
-        <div style="width:230px;height:150px;background:#fff8ec;border-radius:6px;position:relative;box-shadow:0 16px 30px -12px rgba(120,30,10,.35);overflow:hidden">
+        <div style="width:230px;height:150px;background:var(--paper-2);border:2.5px solid var(--ink);border-radius:6px;position:relative;box-shadow:5px 5px 0 var(--ink);overflow:hidden">
           <img id="env-photo" src="photo1.jpeg" style="width:100%;height:100%;object-fit:cover;opacity:.9" />
-          <div style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(255,248,236,.55),rgba(255,248,236,.15))"></div>
-          <div id="env-flap" style="position:absolute;top:0;left:0;width:0;height:0;border-left:115px solid transparent;border-right:115px solid transparent;border-top:78px solid #fdf0e0;transform-origin:top;transition:transform .6s ease"></div>
-          <div style="position:absolute;top:58px;left:50%;transform:translateX(-50%);width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#e2a35a,#c1401e);display:flex;align-items:center;justify-content:center;box-shadow:0 3px 6px rgba(0,0,0,.25);z-index:2">
-            <span style="color:#fff;font-family:'Playfair Display',serif;font-style:italic;font-size:16px">R</span>
+          <div style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(255,250,252,.55),rgba(255,250,252,.15))"></div>
+          <div id="env-flap" style="position:absolute;top:0;left:0;width:0;height:0;border-left:115px solid transparent;border-right:115px solid transparent;border-top:78px solid var(--pink-soft);transform-origin:top;transition:transform .6s ease"></div>
+          <div style="position:absolute;top:58px;left:50%;transform:translateX(-50%);width:38px;height:38px;border-radius:50%;background:var(--pink);border:2.5px solid var(--ink);display:flex;align-items:center;justify-content:center;z-index:2">
+            <span style="color:#fff;font-family:'Baloo 2',sans-serif;font-size:16px">R</span>
           </div>
         </div>
       </div>
-      <div class="font-script fade-up" style="font-size:15px;color:#b87a3f;margin-top:18px" id="env-hint">tap to open</div>
-      <div style="font-size:10px;letter-spacing:2px;color:#e0b878;text-transform:uppercase;margin-top:30px">designs by joy</div>
+      <div class="font-script fade-up" style="font-size:17px;color:var(--ink-soft);margin-top:18px" id="env-hint">tap to open</div>
+      <div style="font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-top:30px">designs by joy</div>
     </section>
 
     <!-- ============ STEP 2.5 — GIF WELCOME ============ -->
@@ -354,20 +382,20 @@ Happy Raksha Bandhan. You're stuck with me as your sibling forever. 🧵</textar
       <div style="position:absolute;bottom:22px;left:28px;font-size:14px;opacity:.4">🍬</div>
       <div style="position:absolute;bottom:16px;right:20px;font-size:16px;opacity:.5">🪔</div>
 
-      <div class="font-script fade-up" style="font-size:28px;color:#c1401e;margin-bottom:4px">welcome, sibling</div>
-      <p class="fade-up" style="color:#8a4f28;font-size:12px;margin-bottom:22px;letter-spacing:.3px">a little something, just for you</p>
+      <div class="font-script fade-up" style="font-size:29px;color:var(--pink);margin-bottom:4px">welcome, sibling</div>
+      <p class="fade-up" style="color:var(--ink-soft);font-size:12px;margin-bottom:22px;letter-spacing:.3px">a little something, just for you</p>
 
-      <div class="fade-up" style="width:200px;background:#fffaf0;padding:10px 10px 16px;border-radius:16px;box-shadow:0 20px 36px -14px rgba(193,64,30,.45);transform:rotate(-2deg);position:relative;border:1px solid #f5e4c0">
+      <div class="fade-up" style="width:200px;background:var(--paper-2);padding:10px 10px 16px;border:2px solid var(--ink);border-radius:16px;box-shadow:5px 5px 0 var(--ink);transform:rotate(-2deg);position:relative">
         <div style="position:absolute;top:-12px;left:-12px;font-size:22px;transform:rotate(-8deg)">🧵</div>
         <div style="position:absolute;top:-10px;right:-14px;font-size:18px;transform:rotate(10deg)">🪔</div>
         <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTV4cjRldTQxejc2c2JlOTcweGdtcGdtMHMxMHgybXN6aWV6MTZhOSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/0Or2NvIm6jcY1ulG6q/giphy.gif" alt="a warm hug" style="width:100%;border-radius:10px;display:block" />
         <div style="position:absolute;bottom:-10px;right:-10px;font-size:20px;transform:rotate(-6deg)">🍬</div>
       </div>
 
-      <div class="font-display fade-up" style="font-size:14.5px;font-style:italic;color:#3a1a0f;margin-top:24px;max-width:260px;line-height:1.65">
+      <div class="font-display fade-up" style="font-size:14.5px;font-weight:600;color:var(--ink);margin-top:24px;max-width:260px;line-height:1.65">
         Every fight, every inside joke, every "I've got you" — that's what this thread is for.
       </div>
-      <div class="font-script fade-up" style="font-size:15px;color:#b87a3f;margin-top:6px">happy raksha bandhan 🧵</div>
+      <div class="font-script fade-up" style="font-size:16px;color:var(--ink-soft);margin-top:6px">happy raksha bandhan 🧵</div>
 
       <button class="btn fade-up" style="margin-top:28px" onclick="goTo('step-letter')">Open the letter →</button>
     </section>
@@ -375,15 +403,15 @@ Happy Raksha Bandhan. You're stuck with me as your sibling forever. 🧵</textar
     <!-- ============ STEP 3 — LETTER ============ -->
     <section id="step-letter" style="display:none;flex:1;flex-direction:column">
       <div style="display:flex;flex:1;min-height:0">
-        <div style="width:38%;position:relative;overflow:hidden">
+        <div style="width:38%;position:relative;overflow:hidden;border-right:2px solid var(--ink)">
           <img id="letter-photo" src="photo.jpeg" style="width:100%;height:100%;object-fit:cover" />
         </div>
         <div style="width:62%;padding:26px 20px 20px;display:flex;flex-direction:column;position:relative">
           <div style="position:absolute;top:12px;right:14px;font-size:15px;opacity:.55">🧵</div>
-          <div class="font-display" style="font-size:19px;font-style:italic;font-weight:600;color:#3a1a0f;margin-bottom:6px">Dear <span id="letter-name"></span>,</div>
-          <div style="width:34px;height:2px;background:#e7c896;border-radius:2px;margin-bottom:14px"></div>
-          <div id="letter-body" style="font-size:12.5px;line-height:22px;color:#4a2f18;flex:1;overflow-y:auto;white-space:pre-wrap;border-left:1.5px dashed #f0d6a0;padding-left:10px;background-image:repeating-linear-gradient(to bottom, transparent, transparent 21px, #f5e4c0 22px);background-position:10px 3px"><span id="letter-body-text"></span><span id="letter-cursor" class="write-cursor"></span></div>
-          <div class="font-display" style="font-style:italic;font-size:13px;color:#c1401e;margin-top:14px;text-align:right">— <span id="letter-sender"></span></div>
+          <div class="font-display" style="font-size:19px;color:var(--ink);margin-bottom:6px">Dear <span id="letter-name"></span>,</div>
+          <div style="width:34px;height:3px;background:var(--pink);border-radius:2px;margin-bottom:14px"></div>
+          <div id="letter-body" style="font-size:12.5px;line-height:22px;color:var(--ink-soft);flex:1;overflow-y:auto;white-space:pre-wrap;border-left:2px dashed var(--pink-soft);padding-left:10px;background-image:repeating-linear-gradient(to bottom, transparent, transparent 21px, var(--pink-soft) 22px);background-position:10px 3px"><span id="letter-body-text"></span><span id="letter-cursor" class="write-cursor"></span></div>
+          <div class="font-script" style="font-size:16px;color:var(--pink);margin-top:14px;text-align:right">— <span id="letter-sender"></span></div>
           <div style="display:flex;justify-content:space-between;margin-top:14px">
             <button class="btn-ghost btn-sm" onclick="goTo('step-gif')">← Back</button>
             <button class="btn btn-sm" onclick="goTo('step-agreement')">Next</button>
@@ -394,11 +422,11 @@ Happy Raksha Bandhan. You're stuck with me as your sibling forever. 🧵</textar
 
     <!-- ============ STEP 3.5 — CERTIFICATION / AGREEMENT ============ -->
     <section id="step-agreement" style="display:none;flex:1;flex-direction:column;padding:30px 24px 24px">
-      <div class="font-display" style="font-size:19px;font-weight:700;color:#3a1a0f;text-align:center;margin-bottom:2px">Certificate of Official Rakhi Sibling-ness</div>
-      <div class="font-script" style="font-size:15px;color:#c1401e;text-align:center;margin-bottom:16px">read carefully, tick honestly</div>
+      <div class="font-display" style="font-size:19px;color:var(--ink);text-align:center;margin-bottom:2px">Certificate of Official Rakhi Sibling-ness</div>
+      <div class="font-script" style="font-size:16px;color:var(--pink);text-align:center;margin-bottom:16px">read carefully, tick honestly</div>
 
       <div class="agree-card">
-        <div style="font-size:11px;color:#b87a3f;margin-bottom:10px;font-family:'Inter',sans-serif">By continuing, <b id="agree-recipient-name" style="color:#3a1a0f">they</b> confirms the following is true:</div>
+        <div style="font-size:11px;color:var(--ink-soft);margin-bottom:10px;font-family:'Work Sans',sans-serif">By continuing, <b id="agree-recipient-name" style="color:var(--ink)">they</b> confirms the following is true:</div>
 
         <div class="agree-item"><div class="agree-check locked">✓</div><div>Ties the rakhi even when running ten minutes late, every single year</div></div>
         <div class="agree-item"><div class="agree-check locked">✓</div><div>Steals the mithai and somehow still gets the credit</div></div>
@@ -426,8 +454,8 @@ Happy Raksha Bandhan. You're stuck with me as your sibling forever. 🧵</textar
 
     <!-- ============ STEP 4 — VISION BOARD (pinterest-style masonry, final) ============ -->
     <section id="step-gallery" style="display:none;flex:1;flex-direction:column;padding:28px 22px 24px;text-align:center;overflow-y:auto">
-      <div class="font-script fade-up" style="font-size:22px;color:#3a1a0f;margin-bottom:4px">every little moment, with you</div>
-      <div class="fade-up" style="font-size:10.5px;letter-spacing:1px;color:#d9b174;text-transform:uppercase;margin-bottom:16px">pinned, just for them</div>
+      <div class="font-script fade-up" style="font-size:23px;color:var(--ink);margin-bottom:4px">every little moment, with you</div>
+      <div class="fade-up" style="font-size:10.5px;letter-spacing:1px;color:var(--muted);text-transform:uppercase;margin-bottom:16px">pinned, just for them</div>
 
       <div class="board-masonry">
 
@@ -548,9 +576,9 @@ let isViewerMode = false;
 /* ---------- decorative corner diyas + scattered thread/diya icons ---------- */
 function diyaSVG(){
   return `<svg viewBox="0 0 40 44" width="40" height="44" xmlns="http://www.w3.org/2000/svg">
-    <path d="M20 4 Q22 10 20 14 Q18 10 20 4Z" fill="#f3d98a"/>
-    <ellipse cx="20" cy="30" rx="15" ry="7" fill="#c1401e"/>
-    <ellipse cx="20" cy="27" rx="15" ry="7" fill="#e2a35a"/>
+    <path d="M20 4 Q22 10 20 14 Q18 10 20 4Z" fill="#FFD866"/>
+    <ellipse cx="20" cy="30" rx="15" ry="7" fill="#FF5C8A"/>
+    <ellipse cx="20" cy="27" rx="15" ry="7" fill="#FFC1D6"/>
   </svg>`;
 }
 (function initDeco(){
@@ -560,7 +588,7 @@ function diyaSVG(){
 })();
 
 function threadSVG(){
-  return `<svg viewBox="0 0 30 30" width="22" height="22"><circle cx="15" cy="15" r="7" fill="none" stroke="#ffffff" stroke-width="2"/><circle cx="15" cy="15" r="2.4" fill="#ffffff"/></svg>`;
+  return `<svg viewBox="0 0 30 30" width="22" height="22"><circle cx="15" cy="15" r="7" fill="none" stroke="#241019" stroke-width="2"/><circle cx="15" cy="15" r="2.4" fill="#241019"/></svg>`;
 }
 (function scatterIcons(){
   const wrap = document.getElementById('frame-icons');
@@ -611,7 +639,7 @@ document.getElementById('file-input').addEventListener('change', async e=>{
   const idx = activeSlot;
   if(!file || idx===null) return;
   const slot = document.querySelector(`.photo-slot[data-slot="${idx}"]`);
-  slot.innerHTML = `<span style="font-size:10px;color:#e0b878">optimizing…</span>`;
+  slot.innerHTML = `<span style="font-size:10px;color:var(--muted)">optimizing…</span>`;
   try{
     const dataUrl = await compressImage(file);
     state.photos[idx] = dataUrl;          // preview + localStorage-safe copy
@@ -783,7 +811,7 @@ async function handlePayment(){
     modal: {
       ondismiss: function(){ btn.disabled = false; }
     },
-    theme: { color: '#c1401e' }
+    theme: { color: '#FF5C8A' }
   });
   rzp.on('payment.failed', function(resp){
     btn.disabled = false;
@@ -1013,20 +1041,20 @@ async function downloadCertificate(){
   btn.disabled = true; btn.textContent = 'Preparing…';
   try{
     await Promise.all([
-      document.fonts.load('700 52px "Dancing Script"'),
-      document.fonts.load('600 30px "Dancing Script"'),
-      document.fonts.load('italic 700 34px "Playfair Display"'),
-      document.fonts.load('700 16px "Playfair Display"'),
-      document.fonts.load('600 16px "Inter"'),
-      document.fonts.load('500 14px "Inter"'),
-      document.fonts.load('700 13px "Inter"')
+      document.fonts.load('700 52px "Caveat"'),
+      document.fonts.load('600 30px "Caveat"'),
+      document.fonts.load('700 34px "Baloo 2"'),
+      document.fonts.load('700 16px "Baloo 2"'),
+      document.fonts.load('600 16px "Work Sans"'),
+      document.fonts.load('500 14px "Work Sans"'),
+      document.fonts.load('700 13px "Work Sans"')
     ]);
     await document.fonts.ready;
 
-    const GOLD = '#c9a227';
-    const MAROON = '#7a1f1a';
-    const INK = '#3a1a0f';
-    const RUST = '#c1401e';
+    const GOLD = '#D9B3FF';
+    const MAROON = '#241019';
+    const INK = '#241019';
+    const RUST = '#FF5C8A';
     const w = 1000, h = 1360;
     const canvas = document.createElement('canvas');
     canvas.width = w; canvas.height = h;
@@ -1035,10 +1063,10 @@ async function downloadCertificate(){
     const recipient = state.recipient || 'Them';
 
     // cream paper
-    ctx.fillStyle = '#fff8ee';
+    ctx.fillStyle = '#FFFAFC';
     ctx.fillRect(0,0,w,h);
 
-    // outer maroon border + inner gold line, like a proper keepsake
+    // outer ink border + inner lilac line, like a proper keepsake
     ctx.lineWidth = 10; ctx.strokeStyle = MAROON;
     ctx.strokeRect(30,30,w-60,h-60);
     ctx.lineWidth = 2; ctx.strokeStyle = GOLD;
@@ -1078,25 +1106,25 @@ async function downloadCertificate(){
     ring(w/2-18, 116, 22, RUST);
     ring(w/2+18, 116, 22, GOLD);
 
-    ctx.font = '600 13px "Inter"'; ctx.fillStyle = '#b87a3f';
+    ctx.font = '600 13px "Work Sans"'; ctx.fillStyle = '#B18A96';
     ctx.fillText('EXHIBIT SIBLINGHOOD', w/2, 178);
 
-    ctx.font = 'italic 700 34px "Playfair Display"'; ctx.fillStyle = INK;
+    ctx.font = '700 34px "Baloo 2"'; ctx.fillStyle = INK;
     wrapCanvasText(ctx, 'Certificate of Official Rakhi Sibling-ness', w/2, 222, w-260, 42);
 
-    ctx.font = '500 14px "Inter"'; ctx.fillStyle = RUST;
+    ctx.font = '500 14px "Work Sans"'; ctx.fillStyle = RUST;
     ctx.fillText('Awarded With Full Honors, No Objections Raised', w/2, 288);
 
     ctx.strokeStyle = MAROON; ctx.lineWidth = 1.5;
     ctx.beginPath(); ctx.moveTo(w/2-110,306); ctx.lineTo(w/2+110,306); ctx.stroke();
 
-    ctx.font = '500 15px "Inter"'; ctx.fillStyle = '#4a2f18';
+    ctx.font = '500 15px "Work Sans"'; ctx.fillStyle = '#6E4552';
     ctx.fillText('This is to certify that, before this document and the family group chat,', w/2, 344);
 
-    ctx.font = '700 52px "Dancing Script"'; ctx.fillStyle = RUST;
+    ctx.font = '700 52px "Caveat"'; ctx.fillStyle = RUST;
     ctx.fillText(recipient, w/2, 408);
 
-    ctx.font = '500 16px "Inter"'; ctx.fillStyle = '#4a2f18';
+    ctx.font = '500 16px "Work Sans"'; ctx.fillStyle = '#6E4552';
     wrapCanvasText(ctx, 'has been unanimously appointed Chief Mithai Officer, Head of Protection Duty, and Most Important Sibling — a title with no vacancy and no competition.', w/2, 448, w-260, 25);
 
     // articles, left-aligned like a real contract
@@ -1108,21 +1136,21 @@ async function downloadCertificate(){
     let ay = 555;
     ctx.textAlign = 'left';
     articles.forEach(([title, body])=>{
-      ctx.font = '700 16px "Playfair Display"'; ctx.fillStyle = MAROON;
+      ctx.font = '700 16px "Baloo 2"'; ctx.fillStyle = MAROON;
       ctx.fillText(title, 110, ay);
-      ctx.font = '500 14px "Inter"'; ctx.fillStyle = '#4a2f18';
+      ctx.font = '500 14px "Work Sans"'; ctx.fillStyle = '#6E4552';
       const lines = wrapCanvasText(ctx, body, 110, ay+24, w-220, 21);
       ay += 46 + Math.max(0, lines-1)*21;
     });
     ctx.textAlign = 'center';
 
-    // gold seal
+    // lilac seal
     ctx.beginPath();
     ctx.arc(w/2, h-268, 68, 0, Math.PI*2);
-    ctx.fillStyle = '#f3d98a';
+    ctx.fillStyle = '#FFC1D6';
     ctx.fill();
     ctx.lineWidth = 4; ctx.strokeStyle = GOLD; ctx.stroke();
-    ctx.font = '700 12px "Inter"'; ctx.fillStyle = INK;
+    ctx.font = '700 12px "Work Sans"'; ctx.fillStyle = INK;
     ctx.fillText('100% APPROVED', w/2, h-274);
     ctx.fillText('NO RETURNS', w/2, h-256);
 
@@ -1133,10 +1161,10 @@ async function downloadCertificate(){
     ctx.strokeStyle = RUST; ctx.lineWidth = 2; ctx.setLineDash([4,3]);
     ctx.strokeRect(-72,-32,144,64);
     ctx.setLineDash([]);
-    ctx.font = '700 13px "Inter"'; ctx.fillStyle = RUST;
+    ctx.font = '700 13px "Work Sans"'; ctx.fillStyle = RUST;
     ctx.fillText('STAMP OF', 0, -8);
     ctx.fillText('APPROVAL', 0, 10);
-    ctx.font = '500 10px "Inter"'; ctx.fillStyle = '#b87a3f';
+    ctx.font = '500 10px "Work Sans"'; ctx.fillStyle = '#B18A96';
     ctx.fillText('best of the best', 0, 27);
     ctx.restore();
 
@@ -1144,17 +1172,17 @@ async function downloadCertificate(){
     ctx.textAlign = 'left';
     ctx.strokeStyle = '#4a2f18'; ctx.lineWidth = 1.2;
     ctx.beginPath(); ctx.moveTo(w-330, h-172); ctx.lineTo(w-110, h-172); ctx.stroke();
-    ctx.font = '600 30px "Dancing Script"'; ctx.fillStyle = MAROON;
+    ctx.font = '600 30px "Caveat"'; ctx.fillStyle = MAROON;
     ctx.fillText(sender, w-320, h-186);
-    ctx.font = '500 12px "Inter"'; ctx.fillStyle = '#b87a3f';
+    ctx.font = '500 12px "Work Sans"'; ctx.fillStyle = '#B18A96';
     ctx.fillText('by order of', w-330, h-152);
 
     const dateStr = new Date().toLocaleDateString('en-IN', { day:'numeric', month:'long', year:'numeric' });
-    ctx.font = '500 13px "Inter"'; ctx.fillStyle = '#b87a3f';
+    ctx.font = '500 13px "Work Sans"'; ctx.fillStyle = '#B18A96';
     ctx.fillText('Executed on ' + dateStr, 110, h-96);
 
     ctx.textAlign = 'center';
-    ctx.font = '400 10px "Inter"'; ctx.fillStyle = '#d9b174';
+    ctx.font = '400 10px "Work Sans"'; ctx.fillStyle = '#B18A96';
     ctx.fillText('Terms and conditions apply. None of them are enforceable in any court. All of them are true.', w/2, h-60);
 
     const dataUrl = canvas.toDataURL('image/png');
